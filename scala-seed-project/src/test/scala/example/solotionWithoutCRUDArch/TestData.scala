@@ -6,56 +6,52 @@ package example.solotionWithoutCRUDArch
 
 package com.typesafe.training.scalatrain
 
-import example.SolutionWithoutCRUDArch.model.Transaction
+import java.time.ZonedDateTime
+
+import example.SolutionWithoutCRUDArch.model.{Account, Transaction}
+import example.models._
 
 object TestData {
 
-  val transaction = Transaction("Munich")
 
-  val nuremberg = Station("Nuremberg")
+  val tale = Customer(Some("1"), "Tale")
+  val henning = Customer(Some("1"), "Henning")
+  val anita = Customer(Some("1"), "Anita")
 
-  val frankfurt = Station("Frankfurt")
 
-  val cologne = Station("Cologne")
+  val accountTale = Account(Some("1"), DEBIT, 100, tale)
+  val accountHenning = Account(Some("2"), DEBIT, 100, henning)
+  val accountAnita = Account(Some("2"), DEBIT, 100, anita)
 
-  val essen = Station("Essen")
+  val transactionPaymentCustTale = Transaction("1",Some("2"),PAYMENT, ZonedDateTime.now())
+  val transactionPaymentCustHenning = Transaction("2",Some("3"),PAYMENT, ZonedDateTime.now())
+  val transactionPaymentCustAnita =  Transaction("3",Some("1"),PAYMENT, ZonedDateTime.now())
 
-  val ice724MunichTime = Time(8, 50)
 
-  val ice724NurembergTime = Time(10)
+  val transactionWithdrawCustTale = Transaction("1",None,WITHDRAW, ZonedDateTime.now())
+  val transactionWithdrawCustHenning = Transaction("2",None,WITHDRAW, ZonedDateTime.now())
+  val transactionWithdrawCustAnita =  Transaction("3",None,WITHDRAW, ZonedDateTime.now())
 
-  val ice724FrankfurtTime = Time(12, 10)
 
-  val ice724CologneTime = Time(13, 39)
+  val transactionDepositCustTale = Transaction("1",None, DEPOSIT,ZonedDateTime.now())
+  val transactionDepositCustHenning = Transaction("2",None,DEPOSIT, ZonedDateTime.now())
+  val transactionDepositCustAnita =  Transaction("3",None,DEPOSIT, ZonedDateTime.now())
 
-  val ice726MunichTime = Time(7, 50)
 
-  val ice726NurembergTime = Time(9)
+  def transactionList = List(
+    transactionPaymentCustTale,
+      transactionPaymentCustHenning,
+    transactionPaymentCustAnita,
+    transactionWithdrawCustTale,
+    transactionWithdrawCustHenning,
+    transactionWithdrawCustAnita,
+    transactionDepositCustTale,
+    transactionDepositCustHenning,
+    transactionDepositCustHenning
 
-  val ice726FrankfurtTime = Time(11, 10)
 
-  val ice726CologneTime = Time(13, 2)
 
-  val ice724 = Train(
-    InterCityExpress(724),
-    Vector(
-      ice724MunichTime -> munich,
-      ice724NurembergTime -> nuremberg,
-      ice724FrankfurtTime -> frankfurt,
-      ice724CologneTime -> cologne
-    )
+
   )
-
-  val ice726 = Train(
-    InterCityExpress(726),
-    Vector(
-      ice726MunichTime -> munich,
-      ice726NurembergTime -> nuremberg,
-      ice726FrankfurtTime -> frankfurt,
-      ice726CologneTime -> essen
-    )
-  )
-
-  val planner = new JourneyPlanner(Set(ice724, ice726))
 }
 

@@ -1,50 +1,22 @@
 package example.SolutionWithoutCRUDArch
 
-import java.time.ZonedDateTime
-
 import example.SolutionWithoutCRUDArch.model.Transaction
-import example.models.{Account, DEPOSIT, TransactionType}
+import example.models.Account
 
-import scala.util.{Failure, Success, Try}
+import scala.util.Try
 
-trait TransactionService{
-  def deposit(account: Account, amount:Double): Try[Transaction]
-  def withdraw(account: Account, amount:Double): Try[Transaction]
-  def transfer(list:List[Transaction]): Try[Transaction]
+/*
 
-}
+Tanken her er å måtte lage objecter. Bruke apply metoder. Lage error håntering og bruke copy.
+Samtidig må de dra inn Calculator trait, og bruke noen av funksjonene de laget i calculator
 
+ */
 
-class TransactionServiceImpl extends TransactionService with Calculator {
+class TransactionServiceImpl {
 
-  def deposit(account: Account, amount:Double): Try[Transaction] = {
-
-    if (amount > 0) {
-      val b = account.balance
-      val newAmount = sum(b,amount)
-      val newAccount = account.copy(balance = newAmount)
-      Success(Transaction(newAccount.id.get, None, DEPOSIT, ZonedDateTime.now())) // todo make more functional
-    }else{
-      Failure(AmountMustBePositive("Amount must be greater than 0"))
-    }
-  }
-
-  // Todo test that this does not overdraw account
-  def withdraw(account: Account, amount:Double): Try[Transaction] = {
-    if (0 < amount && amount <= account.balance) {
-      val b = account.balance()
-      val newAmount = minus(b,amount)
-      val newAccount = account.copy(balance = newAmount)
-      Success(Transaction(newAccount.id.get, None, DEPOSIT, ZonedDateTime.now())) // todo make more functional
-    } else Failure(InsufficientFunds("Insufficient funds"))
-  }
-
+  def deposit(account: Account, amount:Double): Try[Transaction] = ???
+  def withdraw(account: Account, amount:Double): Try[Transaction] = ???
   def transfer(list:List[Transaction]): Try[Transaction] = ???
 
-
-}
-object TransactionObject {
-  def apply(fromAccountId: String, toAccountId: Option[String], transactionType: TransactionType, timestamp: ZonedDateTime) =
-    Transaction(fromAccountId,toAccountId,transactionType,timestamp)
 
 }

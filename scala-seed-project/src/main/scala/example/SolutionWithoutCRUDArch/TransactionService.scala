@@ -1,7 +1,6 @@
 package example.SolutionWithoutCRUDArch
 
-import example.SolutionWithoutCRUDArch.model.Transaction
-import example.models.Account
+import example.SolutionWithoutCRUDArch.model.{Transaction, Account}
 
 import scala.util.Try
 

@@ -1,7 +1,6 @@
 package example.SolutionWithoutCRUDArch
 
-import example.SolutionWithoutCRUDArch.model.{Customer, Transaction, TransactionType}
-import example.models.Account
+import example.SolutionWithoutCRUDArch.model.{Customer, Transaction, TransactionType, Account}
 
 /*
 Tanken her å lære seg map, flatmap. List collection library i scala, filter etc.

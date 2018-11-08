@@ -1,9 +1,8 @@
-package example.solotionWithoutCRUDArch
-
+package workshop
 
 import java.time.ZonedDateTime
 
-import example.SolutionWithoutCRUDArch.model._
+import workshop.model._
 
 object TestData {
 
@@ -48,4 +47,3 @@ object TestData {
 
   )
 }
-

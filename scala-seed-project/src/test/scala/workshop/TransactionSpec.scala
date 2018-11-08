@@ -1,6 +1,5 @@
-package example.solotionWithoutCRUDArch
+package workshop
 
-import example.SolutionWithoutCRUDArch.TransactionHistory
 import org.scalatest.{Matchers, WordSpec}
 
 class TransactionSpec  extends WordSpec with Matchers{

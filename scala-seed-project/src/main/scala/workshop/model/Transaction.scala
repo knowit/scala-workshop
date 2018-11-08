@@ -1,4 +1,4 @@
-package example.SolutionWithoutCRUDArch.model
+package workshop.model
 
 import java.time.ZonedDateTime
 

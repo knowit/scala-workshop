@@ -1,4 +1,4 @@
-package example.SolutionWithoutCRUDArch.model
+package workshop.model
 
 case class Account(id: Option[String],accountType: AccountType, balance: Double, owner:Customer)
 

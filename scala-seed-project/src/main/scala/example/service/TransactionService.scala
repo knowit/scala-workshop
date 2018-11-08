@@ -2,7 +2,7 @@ package example.service
 
 import java.time.LocalDateTime
 
-import example.models.{Account, Transaction, TransactionType}
+import example.models.{Account, Transaction}
 import example.repository.TransactionRepository
 
 class TransactionService(repository: TransactionRepository) {

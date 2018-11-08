@@ -1,6 +1,6 @@
 package example.service
 
-import example.models.Customer
+import example.SolutionWithoutCRUDArch.model.Customer
 
 class CustomerService {
 

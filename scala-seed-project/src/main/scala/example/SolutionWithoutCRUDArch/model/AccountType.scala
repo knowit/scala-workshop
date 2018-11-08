@@ -1,4 +1,4 @@
-package example.models
+package example.SolutionWithoutCRUDArch.model
 
 sealed trait AccountType { val value : String}
 

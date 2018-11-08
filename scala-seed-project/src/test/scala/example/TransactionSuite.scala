@@ -2,6 +2,7 @@ package example
 
 import java.time.{LocalDateTime, ZoneOffset}
 
+import example.SolutionWithoutCRUDArch.model.{Customer, PAYMENT, TransactionType}
 import example.models._
 import example.repository.TransactionRepository
 import org.scalacheck.Gen

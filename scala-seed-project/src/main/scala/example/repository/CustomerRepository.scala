@@ -1,6 +1,6 @@
 package example.repository
 
-import example.models.Customer
+import example.SolutionWithoutCRUDArch.model.Customer
 
 class CustomerRepository {
   def create(name: String): Customer = ???

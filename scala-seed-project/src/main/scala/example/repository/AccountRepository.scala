@@ -2,7 +2,8 @@ package example.repository
 
 import java.util.UUID
 
-import example.models.{Account, Customer}
+import example.SolutionWithoutCRUDArch.model.Customer
+import example.models.Account
 
 import scala.collection.mutable
 

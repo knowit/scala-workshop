@@ -1,6 +1,7 @@
 package example.service
 
-import example.models.{Account, AccountType, Customer}
+import example.SolutionWithoutCRUDArch.model.{AccountType, Customer}
+import example.models.Account
 import example.repository.AccountRepository
 
 class AccountService(accountRepository: AccountRepository) {

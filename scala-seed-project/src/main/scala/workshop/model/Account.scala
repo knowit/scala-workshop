@@ -1,6 +1,4 @@
-package example.SolutionWithoutCRUDArch.model
-
-import example.models.{AccountType, Customer}
+package workshop.model
 
 case class Account(id: Option[String],accountType: AccountType, balance: Double, owner:Customer)
 

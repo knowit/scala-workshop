@@ -1,4 +1,4 @@
-package example.models
+package workshop.model
 
 sealed trait TransactionType { val value : String}
 

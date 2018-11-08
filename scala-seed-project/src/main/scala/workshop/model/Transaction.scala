@@ -1,7 +1,6 @@
-package example.SolutionWithoutCRUDArch.model
+package workshop.model
 
 import java.time.ZonedDateTime
-import example.models.TransactionType
 
 case class Transaction(fromAccountId: String, toAccountId: Option[String], transactionType: TransactionType, timestamp: ZonedDateTime) extends Ordered[Transaction] {
 
@@ -17,7 +16,7 @@ object Transaction {
     val toAccountId = Option(values(1))
     val transactionType = TransactionType(values(2))
     val timestamp = ZonedDateTime.parse(values(3))
-    
+
     Transaction(
       fromAccountId,
       toAccountId,

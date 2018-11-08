@@ -1,6 +1,5 @@
-package example.solotionWithoutCRUDArch
+package workshop
 
-import example.SolutionWithoutCRUDArch.Calculator
 import org.scalatest.{Matchers, WordSpec}
 
 

@@ -1,15 +1,8 @@
-package example.solotionWithoutCRUDArch
-
-/*
- * Copyright © 2012 Typesafe, Inc. All rights reserved.
- */
-
-package com.typesafe.training.scalatrain
+package workshop
 
 import java.time.ZonedDateTime
 
-import example.SolutionWithoutCRUDArch.model.{Account, Transaction}
-import example.models._
+import workshop.model._
 
 object TestData {
 
@@ -54,4 +47,3 @@ object TestData {
 
   )
 }
-

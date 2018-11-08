@@ -1,19 +1,4 @@
-package example.SolutionWithoutCRUDArch
-
-import scala.util.Try
-
-
-/* Tanken er å lære seg at det er enkelt å sende funsjoner rundt. Trenger ikke arv. Lære sentrale begreper og forstå hvoran det fungerer i praksis
-* Introduserer grunnbegrepene
-* 1. Anonyme funsjoner
-* 2. Andregradsfunksjoner
-* 3. val
-* 4 Se at det å kombinere funksjoner er enkelt
-*
-*  Tenker at calculator blir brukt videre i bank eksempelet
-* */
-
-
+package workshop
 
 trait Calculator{
   def debugMath[A](a: A, b: A, f: (A, A) => A): A = {
@@ -44,4 +29,3 @@ trait Calculator{
 //  debugMathExtension(sumSequence, List(1, 2, 3))
 
 }
-

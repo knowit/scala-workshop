@@ -2,7 +2,7 @@ package workshop.model
 
 import java.time.ZonedDateTime
 
-case class Transaction(fromAccountId: String, toAccountId: Option[String], transactionType: TransactionType, timestamp: ZonedDateTime) extends Ordered[Transaction] {
+case class Transaction(fromAccountId: String, toAccountId: Option[String], transactionType: TransactionType, timestamp: ZonedDateTime, amount:Double) extends Ordered[Transaction] {
 
   override def compare(that: Transaction): Int = ???
 
@@ -16,12 +16,14 @@ object Transaction {
     val toAccountId = Option(values(1))
     val transactionType = TransactionType(values(2))
     val timestamp = ZonedDateTime.parse(values(3))
+    val amount = Some(values(4).toDouble)
 
     Transaction(
       fromAccountId,
       toAccountId,
       transactionType,
-      timestamp
+      timestamp,
+      amount
     )
   }
 }

@@ -16,7 +16,7 @@ object Transaction {
     val toAccountId = Option(values(1))
     val transactionType = TransactionType(values(2))
     val timestamp = ZonedDateTime.parse(values(3))
-    val amount = Some(values(4).toDouble)
+    val amount = values(4).toDouble
 
     Transaction(
       fromAccountId,

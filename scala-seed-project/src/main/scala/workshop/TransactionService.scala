@@ -13,15 +13,7 @@ Samtidig må de dra inn Calculator trait, og bruke noen av funksjonene de laget 
 
  */
 
-trait TransactionService{
-  def deposit(account: Account, amount:Double): Try[Transaction]
-  def withdraw(account: Account, amount:Double): Try[Transaction]
-  def transfer(list:List[Transaction]): Try[Transaction]
-
-}
-
-
-class TransactionServiceImpl extends TransactionService with Calculator {
+class TransactionServiceImpl extends Calculator {
 
   def deposit(account: Account, amount:Double): Try[Transaction] = {
 
@@ -30,7 +22,7 @@ class TransactionServiceImpl extends TransactionService with Calculator {
       val newAmount = sum(b,amount)
       val newAccount = account.copy(balance = newAmount)
       newAccount.id.map{ id =>
-        Success(Transaction(id, None, DEPOSIT, ZonedDateTime.now()))
+        Success(Transaction(id, None, DEPOSIT, ZonedDateTime.now(), amount))
       }.getOrElse(Failure(NoAccoutId("Amount must be greater than 0")))
     }else{
       Failure(AmountMustBePositive("Amount must be greater than 0"))
@@ -44,7 +36,7 @@ class TransactionServiceImpl extends TransactionService with Calculator {
       val newAmount = minus(b,amount)
       val newAccount = account.copy(balance = newAmount)
       newAccount.id.map{ id =>
-        Success(Transaction(id, None, DEPOSIT, ZonedDateTime.now()))
+        Success(Transaction(id, None, DEPOSIT, ZonedDateTime.now(), amount))
       }.getOrElse(Failure(NoAccoutId("Amount must be greater than 0")))
     } else Failure(InsufficientFunds("Insufficient funds"))
   }
@@ -54,7 +46,7 @@ class TransactionServiceImpl extends TransactionService with Calculator {
 
 }
 object TransactionObject {
-  def apply(fromAccountId: String, toAccountId: Option[String], transactionType: TransactionType, timestamp: ZonedDateTime) =
-    Transaction(fromAccountId,toAccountId,transactionType,timestamp)
+  def apply(fromAccountId: String, toAccountId: Option[String], transactionType: TransactionType, timestamp: ZonedDateTime, amount:Double) =
+    Transaction(fromAccountId,toAccountId,transactionType,timestamp, amount)
 
 }

@@ -2,6 +2,10 @@ package workshop
 
 import java.time.ZonedDateTime
 
+import workshop.model._
+
+import scala.util.{Failure, Success, Try}
+
 /*
 
 Tanken her er å måtte lage objecter. Bruke apply metoder. Lage error håntering og bruke copy.

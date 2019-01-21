@@ -1,15 +1,12 @@
-import Dependencies._
+name := "Scala-workshop"
+version := "0.1.0-SNAPSHOT"
+organization := "com.example"
+scalaVersion := "2.12.5"
 
-lazy val root = (project in file(".")).
-  settings(
-    inThisBuild(List(
-      organization := "com.example",
-      scalaVersion := "2.12.5",
-      version      := "0.1.0-SNAPSHOT"
-    )),
-    name := "Hello",
-    libraryDependencies ++= Seq(
-      scalaTest % Test,
-      scalaCheck % Test
-    )
-  )
+lazy val scalaTest = "org.scalatest" %% "scalatest" % "3.0.5"
+lazy val scalaCheck = "org.scalacheck" %% "scalacheck" % "1.14.0"
+
+libraryDependencies ++= Seq(
+  scalaTest % Test,
+  scalaCheck % Test
+)

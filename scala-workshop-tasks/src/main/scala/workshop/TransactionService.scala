@@ -2,10 +2,6 @@ package workshop
 
 import java.time.ZonedDateTime
 
-import model.{Account, DEPOSIT, Transaction, TransactionType}
-
-import scala.util.{Failure, Success, Try}
-
 /*
 
 Tanken her er å måtte lage objecter. Bruke apply metoder. Lage error håntering og bruke copy.
@@ -23,7 +19,7 @@ class TransactionServiceImpl extends Calculator {
       val newAccount = account.copy(balance = newAmount)
       newAccount.id.map{ id =>
         Success(Transaction(id, None, DEPOSIT, ZonedDateTime.now(), amount))
-      }.getOrElse(Failure(NoAccoutId("Amount must be greater than 0")))
+      }.getOrElse(Failure(NoAccoutId("Missing accountId")))
     }else{
       Failure(AmountMustBePositive("Amount must be greater than 0"))
     }
@@ -36,8 +32,8 @@ class TransactionServiceImpl extends Calculator {
       val newAmount = minus(b,amount)
       val newAccount = account.copy(balance = newAmount)
       newAccount.id.map{ id =>
-        Success(Transaction(id, None, DEPOSIT, ZonedDateTime.now(), amount))
-      }.getOrElse(Failure(NoAccoutId("Amount must be greater than 0")))
+        Success(Transaction(id, None, WITHDRAW, ZonedDateTime.now(), amount))
+      }.getOrElse(Failure(NoAccoutId("Missing accountId")))
     } else Failure(InsufficientFunds("Insufficient funds"))
   }
 

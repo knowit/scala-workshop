@@ -41,7 +41,21 @@ class TransactionServiceImpl extends Calculator {
     } else Failure(InsufficientFunds("Insufficient funds"))
   }
 
-  def transfer(list:List[Transaction]): Try[Transaction] = ???
+  def transfer(fromAccount: Account, toAccount: Account, amount:Double): Try[Transaction] = {
+    for {
+      _ <- withdraw(fromAccount, amount)
+      _ <- deposit(toAccount, amount)
+    } yield Transaction(fromAccount.id.get, toAccount.id, TRANSFER, ZonedDateTime.now(), amount)
+
+    /*
+    withdraw(fromAccount, amount).flatMap(
+      withdrawTransaction => deposit(toAccount, amount).map(
+        depositTransaction =>
+          Transaction("", None, TRANSFER, ZonedDateTime.now(), amount)
+      )
+    )
+    */
+  }
 
 
 }

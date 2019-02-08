@@ -2,7 +2,7 @@ package workshop
 
 import org.scalatest.{Matchers, WordSpec}
 
-class TransactionSpec  extends WordSpec with Matchers{
+class TransactionHistorySpec  extends WordSpec with Matchers{
 val transactions = TestData.transactionList
 val transactionHistory = new TransactionHistory()
 
